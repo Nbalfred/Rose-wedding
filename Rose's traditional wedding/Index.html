@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Homecoming — Rose NDAANEE &amp; Daniel MTON · 27 June 2026 · Ogoni Land</title>
+<meta name="description" content="The traditional wedding of Rose NDAANEE and Daniel MTON — Luekue, Ogoni Land, Rivers State, Nigeria. 27 June 2026. Leave them a sealed blessing.">
+<meta name="theme-color" content="#0B3D2C">
+<meta name="author" content="The family">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Homecoming — Rose NDAANEE &amp; Daniel MTON">
+<meta property="og:description" content="27 June 2026 · Luekue, Ogoni Land, Rivers State, Nigeria. Leave them a sealed blessing.">
+<meta property="og:image" content="images/the-couple.jpg">
+<meta property="og:image:alt" content="Rose NDAANEE and Daniel MTON, 27 June 2026">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="images/the-couple.jpg">
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="images/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="images/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Marcellus&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#blessing">Skip to the blessing form</a>
+
+<!-- The amber bar. Disappears on its own once config.js is filled in. -->
+<div class="setup" id="setupBar" role="status" hidden>
+  <span id="setupText"></span>
+  <button type="button" id="setupHide">Hide</button>
+</div>
+
+<!-- Red bar: shown only if the database is reachable AND still open to the
+     public. Closing this is what actually makes the blessings private. -->
+<div class="danger" id="dangerBar" role="alert" hidden>
+  <b>The blessings are not private yet.</b>
+  Anyone can create an account on this database and read every message guests write.
+  Turn off <i>Enable email signup</i> in Supabase &rarr; Authentication &rarr; Providers.
+  <a href="setup.html">Fix it in one step</a>
+</div>
+<div class="setup setup--done" id="lockedBar" role="status" hidden>
+  <span><b>Private.</b> Only you three can read what guests write.</span>
+</div>
+
+
+<!-- ====================================================== HERO ========== -->
+<header class="hero grain" id="top">
+  <div class="hero__slides" id="heroSlides" aria-hidden="true">
+    <div class="hero__slide is-placeholder"></div>
+    <div class="hero__slide is-placeholder"></div>
+    <div class="hero__slide is-placeholder"></div>
+  </div>
+  <div class="hero__veil" aria-hidden="true"></div>
+
+  <div class="hero__inner wrap">
+    <p class="eyebrow" style="color:var(--gold-400)">A traditional wedding</p>
+
+    <h1 class="hero__names">
+      <span class="hero__amp" aria-hidden="true">&#183; &#183; &#183;</span>
+      <span class="hero__name" data-bind="bride.full">Rose NDAANEE</span>
+      <span class="hero__weds" aria-hidden="true">weds</span>
+      <span class="sr-only">and</span>
+      <span class="hero__name" data-bind="groom.full">Daniel MTON</span>
+    </h1>
+
+    <div class="hero__meta">
+      <b data-bind="date.numeric">27 &middot; 06 &middot; 2026</b>
+      <span class="hero__place">
+        <span data-bind="place.heritage">Ogoni Land</span>,
+        <span data-bind="place.state">Rivers State</span>,
+        <span data-bind="place.country">Nigeria</span>
+      </span>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#counter">
+    <span>Scroll</span>
+    <span aria-hidden="true"></span>
+  </a>
+</header>
+
+<div class="band" aria-hidden="true"></div>
+
+
+<!-- ================================================== DAYS MARRIED ====== -->
+<section class="section on-dark grain" id="counter" aria-labelledby="counter-h">
+  <div class="wrap counter">
+    <p class="eyebrow">Since <span data-bind="date.inWords">the twenty-seventh of June, two thousand and twenty-six</span></p>
+    <h2 id="counter-h" style="font-size:var(--step-3);max-width:16ch;margin-inline:auto">
+      <span id="daysMarried" style="color:var(--gold-400)">—</span> days married
+    </h2>
+
+    <div class="counter__grid" id="counterGrid" style="margin-top:3rem">
+      <div class="counter__cell"><b class="counter__num" data-tick="d">0</b><span class="counter__label">Days</span></div>
+      <div class="counter__cell"><b class="counter__num" data-tick="h">0</b><span class="counter__label">Hours</span></div>
+      <div class="counter__cell"><b class="counter__num" data-tick="m">0</b><span class="counter__label">Minutes</span></div>
+      <div class="counter__cell"><b class="counter__num" data-tick="s">0</b><span class="counter__label">Seconds</span></div>
+    </div>
+
+    <div class="beads" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+
+    <p class="lede counter__note" style="max-width:44ch;margin-inline:auto">
+      For the people who were not in the room. Nothing here is closed to you —
+      you simply write to them, and they read it later, quietly, together.
+    </p>
+  </div>
+</section>
+
+
+<!-- ================================================== JOURNEY HOME ====== -->
+<section class="section grain" id="journey" aria-labelledby="journey-h">
+  <div class="wrap journey">
+    <div class="journey__text">
+      <p class="eyebrow">The journey</p>
+      <h2 id="journey-h" style="font-size:var(--step-3)">She left. And then she came home.</h2>
+      <div class="beads" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div id="journeyText">
+        <p class="lede" style="color:var(--ink-soft)">Loading the story&hellip;</p>
+      </div>
+    </div>
+
+    <figure class="journey__map reveal" id="journeyMap" style="margin:0">
+      <svg viewBox="0 0 300 250" role="img" aria-labelledby="mapTitle mapDesc">
+        <title id="mapTitle">The journey home</title>
+        <desc id="mapDesc">An arc from the United States down to Ogoni Land in Rivers State, Nigeria.</desc>
+
+        <!-- stylised coastlines, deliberately abstract -->
+        <g fill="rgba(246,241,231,0.07)" stroke="rgba(201,162,39,0.22)" stroke-width="0.6">
+          <path d="M6 6 L96 6 L92 44 L74 60 L82 82 L64 96 L70 122 L48 138 L30 168 L6 178 Z"/>
+          <path d="M124 96 L150 88 L168 104 L182 128 L196 138 L214 156 L232 180 L250 206 L262 244 L124 244 Z"/>
+        </g>
+
+        <!-- faint reference arc -->
+        <path class="journey__arc journey__arc--dim" d="M58 74 C 150 150, 196 214, 214 236"/>
+
+        <!-- the drawn arc -->
+        <path class="journey__arc" id="travelArc" d="M58 74 C 150 150, 196 214, 214 236"/>
+
+        <circle class="journey__pin" cx="58" cy="74" r="4.5"/>
+        <circle class="journey__pin journey__pin--home" cx="214" cy="236" r="6"/>
+        <circle class="journey__pin journey__pin--home" cx="214" cy="236" r="11" fill="none" stroke="rgba(201,162,39,0.4)" stroke-width="1"/>
+
+        <text class="journey__label" x="58" y="60" text-anchor="middle">The USA</text>
+        <text class="journey__label" x="214" y="222" text-anchor="middle">Home</text>
+      </svg>
+
+      <figcaption class="journey__legend">
+        <span data-bind="journey.from">The United States</span>
+        <span aria-hidden="true">&rarr;</span>
+        <span data-bind="journey.to">Luekue, Nigeria</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<!-- ====================================================== THE NAMES ===== -->
+<section class="section section--tight on-dark grain" id="names" aria-labelledby="names-h">
+  <div class="wrap names">
+    <p class="eyebrow">What the names mean</p>
+    <h2 id="names-h" class="visually-hidden">The meaning of their names</h2>
+    <div class="names__pair" id="namesPair"></div>
+  </div>
+</section>
+
+
+<!-- ==================================================== THE DAY ========== -->
+<section class="section grain" id="day" aria-labelledby="day-h">
+  <div class="wrap">
+    <p class="eyebrow" data-bind="programmeHeading">The Day, As It Was</p>
+    <h2 id="day-h" style="font-size:var(--step-3);max-width:14ch">It is finished. Here is how it went.</h2>
+    <div class="rule" aria-hidden="true"></div>
+    <ol class="timeline" id="timeline" style="list-style:none;padding-left:0;margin-top:2.6rem"></ol>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true"></div>
+
+
+<!-- ================================================== THE CUSTOMS ======= -->
+<section class="section on-dark grain" id="customs" aria-labelledby="customs-h">
+  <div class="wrap">
+    <p class="eyebrow">How it is done</p>
+    <h2 id="customs-h" style="font-size:var(--step-3);max-width:16ch" data-bind="customsHeading">Customs of the Day</h2>
+    <p class="lede" style="max-width:52ch;margin-bottom:3rem">
+      A Niger Delta wedding is not a ceremony with a schedule. It is a family
+      conversation that started long before anybody wore a wrapper. These are
+      the parts that were part of this one.
+    </p>
+    <div class="customs" id="customs"></div>
+  </div>
+</section>
+
+
+<!-- ================================================== THE COLOURS ======= -->
+<section class="section grain" id="colours" aria-labelledby="colours-h">
+  <div class="wrap">
+    <p class="eyebrow">Kept here to be remembered</p>
+    <h2 id="colours-h" style="font-size:var(--step-3)" data-bind="paletteHeading">The Colours of the Day</h2>
+    <p class="lede" style="max-width:48ch" data-bind="paletteNote"></p>
+    <div class="rule" aria-hidden="true"></div>
+    <div class="palette" id="palette"></div>
+  </div>
+</section>
+
+
+<!-- ==================================================== THE GALLERY ===== -->
+<section class="section section--tight on-dark grain" id="gallery" aria-labelledby="gallery-h">
+  <div class="wrap">
+    <p class="eyebrow">Photographs</p>
+    <h2 id="gallery-h" style="font-size:var(--step-3);margin-bottom:2.4rem">The day, as the camera saw it</h2>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photograph viewer">
+  <button class="lightbox__close" id="lbClose" type="button" aria-label="Close">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Previous photograph">&#8249;</button>
+  <div style="display:grid;justify-items:center;max-width:100%">
+    <div id="lbStage"></div>
+    <p class="lightbox__cap" id="lbCap"></p>
+  </div>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Next photograph">&#8250;</button>
+</div>
+
+
+<!-- ================================================== THE FAMILIES ====== -->
+<section class="section grain" id="families" aria-labelledby="fam-h">
+  <div class="wrap">
+    <p class="eyebrow">The two of them, and everyone who raised them</p>
+    <h2 id="fam-h" style="font-size:var(--step-3);max-width:16ch">The families</h2>
+    <div class="rule" aria-hidden="true"></div>
+    <div class="people" id="people"></div>
+  </div>
+</section>
+
+
+<!-- ================================================== THE INVITATION ==== -->
+<section class="section invite grain" id="blessing" aria-labelledby="blessing-h">
+  <div class="wrap wrap--narrow" style="text-align:center;position:relative">
+    <p class="eyebrow">For everyone who could not be there</p>
+    <h2 id="blessing-h" style="font-size:var(--step-3);max-width:18ch;margin-inline:auto">
+      Leave them a <span class="script-word">blessing</span>
+    </h2>
+    <p class="lede" style="max-width:46ch;margin:0 auto 3rem">
+      There is no guestbook on this page for everyone to read. What you write goes
+      to <b data-bind="bride.first">Rose</b> and <b data-bind="groom.first">Daniel</b> and the
+      three of them who made it, and to nobody else.
+    </p>
+  </div>
+
+  <div class="wrap" style="position:relative">
+
+    <div class="envelope" id="envelope">
+      <div class="env__pocket">
+        <button class="env__seal" id="envSeal" type="button" aria-label="Open the envelope to write a blessing">
+          <span aria-hidden="true">&#10084;</span>
+        </button>
+        <p class="env__hint">
+          <b>The envelope is sealed</b>
+          Tap the seal to open it
+        </p>
+      </div>
+
+      <div class="letter" id="letter">
+
+        <!-- the form -->
+        <div id="formWrap">
+          <div class="letter__head">
+            <h3>Write to them</h3>
+            <p>So that they know who was thinking of them, and so that they can find
+               your message again when they read them together.</p>
+          </div>
+
+          <form id="blessingForm" novalidate>
+            <div class="steps" aria-hidden="true"><i class="is-on"></i><i></i></div>
+
+            <!-- STEP 1 ------------------------------------------------- -->
+            <fieldset class="step is-on" id="step1" style="border:0;padding:0;margin:0">
+              <legend class="legend" style="margin-bottom:1.2rem">
+                Step one of two &mdash; who is writing
+              </legend>
+
+              <div class="field" id="f-full_name">
+                <label for="full_name">Your full name <span class="req" aria-hidden="true">*</span></label>
+                <input id="full_name" name="full_name" type="text" required autocomplete="name"
+                       placeholder="The name they will know you by" maxlength="90">
+                <span class="err" id="e-full_name" role="alert"></span>
+              </div>
+
+              <div class="field" id="f-side">
+                <label for="side">Which side of the family <span class="req" aria-hidden="true">*</span></label>
+                <select id="side" name="side" required>
+                  <option value="">Choose&hellip;</option>
+                </select>
+                <span class="err" id="e-side" role="alert"></span>
+              </div>
+
+              <div class="field" id="f-side_other" hidden>
+                <label for="side_other">Tell us how you are connected</label>
+                <input id="side_other" name="side_other" type="text" maxlength="80"
+                       placeholder="Neighbour of the family, colleague of the groom&hellip;">
+              </div>
+
+              <div class="two-up">
+                <div class="field" id="f-town">
+                  <label for="town">Town or city <span class="opt">(optional)</span></label>
+                  <input id="town" name="town" type="text" autocomplete="address-level2" maxlength="60"
+                         placeholder="Your town or city">
+                </div>
+                <div class="field" id="f-country">
+                  <label for="country">Country <span class="opt">(optional)</span></label>
+                  <select id="country" name="country">
+                    <option value="">Choose&hellip;</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="two-up">
+                <div class="field" id="f-phone">
+                  <label for="phone">Phone <span class="opt">(optional)</span></label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="30"
+                         inputmode="tel" placeholder="So they can thank you properly">
+                </div>
+                <div class="field" id="f-email">
+                  <label for="email">Email <span class="opt">(optional)</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" maxlength="120"
+                         placeholder="To send you the photographs">
+                  <span class="err" id="e-email" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="field" id="f-guest_of">
+                <label for="guest_of">You came as the guest of <span class="opt">(optional)</span></label>
+                <input id="guest_of" name="guest_of" type="text" maxlength="90"
+                       placeholder="e.g. Mrs Adaeze, or the Okrika family table">
+              </div>
+
+              <div class="actions">
+                <button class="btn btn--gold" type="button" id="toStep2">Next &mdash; write it</button>
+              </div>
+            </fieldset>
+
+            <!-- STEP 2 ------------------------------------------------- -->
+            <fieldset class="step" id="step2" style="border:0;padding:0;margin:0" disabled>
+              <legend class="legend" style="margin-bottom:1.2rem">
+                Step two of two &mdash; your blessing
+              </legend>
+
+              <div style="font-size:0.8rem;color:var(--ink-soft);margin-bottom:1.2rem;line-height:1.7">
+                Writing as <b id="asWhom" style="color:var(--green-700)">&mdash;</b>
+                <button type="button" id="editWho"
+                  style="background:none;border:0;color:var(--coral-600);cursor:pointer;font:inherit;text-decoration:underline;padding:0 0.2rem">
+                  change</button>
+              </div>
+
+              <div class="field" id="f-message">
+                <label for="message">Your message <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" required maxlength="2000" rows="7"
+                          placeholder="Write what you wish. They will read this in private."></textarea>
+                <div class="counter-line">
+                  <span class="err" id="e-message" role="alert"></span>
+                  <span><b id="charCount">0</b> / 2000</span>
+                </div>
+              </div>
+
+              <!-- bot trap: invisible to people, tempting to robots -->
+              <div aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="actions">
+                <button class="btn btn--ghost" type="button" id="backStep1">&larr; Back</button>
+                <button class="btn btn--gold" type="submit" id="sealBtn">Seal &amp; send</button>
+              </div>
+            </fieldset>
+
+            <p class="privacy">
+              <strong>Who sees this:</strong> <b data-bind="bride.first">Rose</b>,
+              <b data-bind="groom.first">Daniel</b>, and the person who built this page.
+              Nobody else &mdash; not other guests, not the internet. Your phone and email are
+              kept only so they can thank you afterwards. This page is not listed anywhere
+              and cannot be read without a password.
+            </p>
+
+            <p class="a-msg a-msg--bad" id="formError" role="alert"></p>
+          </form>
+        </div>
+
+        <!-- the receipt -->
+        <div class="receipt" id="receipt" role="status">
+          <div class="receipt__seal" aria-hidden="true">&#10084;</div>
+          <h3>Sealed, <span id="receiptName">friend</span>.</h3>
+          <p>Your blessing is closed. It will be read by Rose and
+             <span data-bind="groom.first">Daniel</span> alone.</p>
+          <p class="receipt__code" id="receiptCode">—</p>
+          <p class="receipt__note" id="receiptNote">
+            Keep that code. If you ever need to point to what you wrote, quote it.
+          </p>
+          <div class="receipt__again">
+            <button class="btn btn--ghost btn--sm" type="button" id="writeAnother">Write another</button>
+          </div>
+        </div>
+
+      </div><!-- /.letter -->
+    </div><!-- /.envelope -->
+
+    <div class="tally">
+      <b class="tally__n" id="tallyN">&mdash;</b>
+      <span class="tally__l" id="tallyL">blessings received</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ====================================================== FOOTER ======== -->
+<footer class="foot grain">
+  <div class="wrap">
+    <p class="foot__names" data-bind="title">Rose NDAANEE &amp; Daniel MTON</p>
+    <span class="foot__hashtag" data-bind="hashtag">#RoseNdaanee2026</span>
+    <p class="foot__blurb" data-bind="blurb"></p>
+
+    <div class="foot__share">
+      <a class="share" id="shareWA" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="share" type="button" id="shareCopy">Copy link</button>
+      <button class="share" type="button" id="shareNative">Share</button>
+    </div>
+
+    <p class="igbo" id="igboEgg" aria-hidden="true">Ọ bụnị unu, ndi ochie.</p>
+
+    <p class="foot__admin">
+      <button type="button" id="adminDoor">&#9679;&#9679;&#9679; family only</button>
+    </p>
+    <p class="foot__fine">
+      <span data-bind="date.numeric">27 &middot; 06 &middot; 2026</span> &middot;
+      <span data-bind="place.heritage">Ogoni Land</span>, Nigeria
+    </p>
+  </div>
+</footer>
+
+<div class="petals" id="petals" aria-hidden="true"></div>
+<p class="visually-hidden" id="live" role="status" aria-live="polite"></p>
+
+<noscript>
+  <div style="background:#C9A227;color:#05150F;padding:1rem;text-align:center;font-size:0.9rem">
+    The blessing form needs JavaScript switched on. Everything else on this page still works.
+  </div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="script.js" defer></script>
+</body>
+</html>

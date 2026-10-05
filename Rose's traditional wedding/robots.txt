@@ -1,0 +1,25 @@
+# HOME COMING
+# The wedding page is meant to be found and shared. Everything that is not
+# the wedding page is not.
+
+User-agent: *
+Disallow: /admin.html
+Disallow: /admin.js
+Disallow: /setup.html
+Disallow: /setup.js
+Disallow: /_headers
+Disallow: /sw.js
+Disallow: /supabase-schema.sql
+Disallow: /fix-grants.sql
+Disallow: /README.md
+
+# The SQL files and the notes are private instructions. Even though they hold
+# no guest data, they should not be sitting on a public server at all — the
+# headers above refuse to serve them sensibly, and this keeps them out of
+# search results.
+Disallow: /*.sql
+Disallow: /*.md
+Disallow: /images/README.txt
+
+# Nothing here needs to be crawled for images either; the site is text.
+Allow: /

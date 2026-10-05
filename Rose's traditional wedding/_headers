@@ -1,0 +1,169 @@
+# HOME COMING â€” response headers
+# Netlify and Cloudflare Pages read this automatically the moment you drop the
+# folder in. On any other host it is simply ignored, which is harmless.
+
+# The same policy applies to every page: the whole site, then these.
+# - no page may be framed by another site, which stops clickjacking
+# - no guessing of content types, which is a form-sniffing defence
+# - the browser does not leak your page address when you follow a link out
+# - after one visit, the browser refuses to ever try an unencrypted version
+#
+# The Content-Security-Policy is the strict one, and it is only safe because
+# the front end loads nothing it did not write itself. If you ever add a photo
+# hosted somewhere else, add that domain to img-src below.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cumgwfrjilghykgszblt.supabase.co https://api.web3forms.com; worker-src 'self'; manifest-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+# The guest page. Cached for an hour, so a repeat visit is instant but any edit
+# you make shows up the same day rather than the next week.
+
+/Index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cumgwfrjilghykgszblt.supabase.co https://api.web3forms.com; worker-src 'self'; manifest-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+# Same, for the three front-end files. config.js is here on purpose: you will
+# edit it, and it must not be served stale from a cache.
+
+/Style.css
+  Cache-Control: public, max-age=3600
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/script.js
+  Cache-Control: public, max-age=3600
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/config.js
+  Cache-Control: public, max-age=3600
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# THE PRIVATE PANEL. Never cached, and never written into a browser history.
+# This is the page with the phone numbers and email addresses in it.
+
+/admin.html
+  Cache-Control: no-store, no-cache, must-revalidate, private
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cumgwfrjilghykgszblt.supabase.co; worker-src 'self'; manifest-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+/admin.js
+  Cache-Control: no-store, no-cache, must-revalidate, private
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cumgwfrjilghykgszblt.supabase.co; worker-src 'self'; manifest-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'
+  X-Robots-Tag: noindex, nofollow
+
+# The setup page. Not cached â€” you will keep coming back to it while you
+# finish the job, and you do not want it to tell you a stale story.
+
+/setup.html
+  Cache-Control: no-store, must-revalidate
+  X-Robots-Tag: noindex, nofollow
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cumgwfrjilghykgszblt.supabase.co; worker-src 'self'; manifest-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'
+  X-Robots-Tag: noindex, nofollow
+
+/setup.js
+  Cache-Control: no-store, must-revalidate
+  X-Robots-Tag: noindex, nofollow
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'
+
+# Photographs and icons never change once you have put them there.
+
+/images/*
+  Cache-Control: public, max-age=2592000
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'
+
+# The service worker and the manifest. Never cached, so an update to the site
+# actually reaches people instead of being pinned by a stale worker.
+
+/sw.js
+  Cache-Control: no-store, must-revalidate
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'
+
+/manifest.json
+  Cache-Control: no-store, must-revalidate
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'
+
+# Nothing should ever be listing the SQL, the notes, or the plain text files.
+
+/supabase-schema.sql
+  X-Robots-Tag: noindex, nofollow
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'
+
+/fix-grants.sql
+  X-Robots-Tag: noindex, nofollow
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'
+
+/README.md
+  X-Robots-Tag: noindex, nofollow
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: default-src 'self'; worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Family only — Rose &amp; Daniel</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#0d1512">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="images/icon-192.png" sizes="192x192">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@300;400;500&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Style.css">
+</head>
+
+<body class="a-body">
+
+<!-- ================= SIGN IN ================= -->
+<div class="a-wrap" id="loginView" hidden>
+  <div class="a-login">
+    <p class="a-brand"><small>Family only</small>Homecoming</p>
+    <h1 style="font-size:2.2rem;margin:0 0 0.4rem">The blessings</h1>
+    <p style="color:rgba(232,228,218,0.6);font-size:0.88rem;margin-bottom:1.8rem">
+      Everything your guests wrote. Only the three of you can get past this door.
+    </p>
+
+    <div class="a-card">
+      <form id="loginForm" novalidate>
+        <div class="a-field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="username" required>
+        </div>
+        <div class="a-field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="btn btn--gold btn--full" type="submit" id="loginBtn" style="margin-top:0.6rem">Sign in</button>
+        <p class="a-msg" id="loginMsg" role="alert"></p>
+      </form>
+    </div>
+
+    <p class="a-lock" style="margin-top:1.6rem;justify-content:center">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V6a3 3 0 0 1 3-3zm0 11a2 2 0 0 1 1 3.73V19a1 1 0 1 1-2 0v-1.27A2 2 0 0 1 12 14z"/></svg>
+      Sealed in the database, not just hidden here
+    </p>
+  </div>
+</div>
+
+
+<!-- ================= DASHBOARD ================= -->
+<div class="a-wrap" id="dashView" hidden>
+
+  <div class="a-top">
+    <p class="a-brand">
+      <small>Family only</small>
+      <span id="dashNames">Rose NDAANEE</span>
+    </p>
+    <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap">
+      <span class="a-lock" id="whoAmI"></span>
+      <button class="a-btn" type="button" id="signOut">Sign out</button>
+    </div>
+  </div>
+
+  <div class="a-stats" id="stats"></div>
+
+  <div class="a-tools">
+    <input type="search" id="search" placeholder="Search a name, a place, a word&hellip;" aria-label="Search blessings">
+    <select id="filterSide" aria-label="Filter by side of the family">
+      <option value="">Every side</option>
+    </select>
+    <select id="filterStatus" aria-label="Filter by status">
+      <option value="all">All</option>
+      <option value="unread">Unread only</option>
+      <option value="read">Read</option>
+      <option value="hidden">Hidden</option>
+    </select>
+    <button class="a-btn" type="button" id="markAll">Mark all read</button>
+    <button class="a-btn" type="button" id="exportBtn">Export CSV</button>
+  </div>
+
+  <p style="font-size:0.72rem;color:rgba(232,228,218,0.4);margin:0 0 1.2rem">
+    Phone numbers and email addresses stay hidden until you open a message.
+  </p>
+
+  <div class="a-list" id="list"></div>
+
+  <p class="a-foot">
+    Nothing on this page is visible to a guest, even if they know the address.
+  </p>
+</div>
+
+<script src="config.js"></script>
+<script src="admin.js" defer></script>
+</body>
+</html>
