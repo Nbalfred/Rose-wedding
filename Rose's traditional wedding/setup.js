@@ -32,7 +32,7 @@
 
   var foot = document.getElementById('stFoot');
   if (inbx && key) {
-    foot.innerHTML = 'Everything is on. <a href="Index.html" style="color:var(--gold-400)">Go and check the page</a> &mdash; and remember to set <b>needsSetup: false</b> in config.js to hide the amber bar.';
+    foot.innerHTML = 'Everything is on. <a href="index.html" style="color:var(--gold-400)">Go and check the page</a> &mdash; and remember to set <b>needsSetup: false</b> in config.js to hide the amber bar.';
   } else {
     foot.innerHTML = 'Nothing to undo at any point. Do step 1 and you are done.';
   }
@@ -58,7 +58,7 @@
     for (var i = 0; i < items.length; i++) if (items[i].className === 'fail') bad++;
     if (bad === 0) {
       foot.innerHTML = 'Everything is checked and working. ' +
-        '<a href="Index.html" style="color:var(--gold-400)">Go and look at the page</a>, ' +
+        '<a href="index.html" style="color:var(--gold-400)">Go and look at the page</a>, ' +
         'then set <b>needsSetup: false</b> in config.js.';
     }
   }

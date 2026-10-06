@@ -4,12 +4,12 @@
    The blessing form and the admin panel are deliberately never cached.
    ========================================================================== */
 
-var CACHE = 'homecoming-v2';
+var CACHE = 'homecoming-v3';
 
 /* Only these. Do not add the admin page or the Supabase calls. */
 var SHELL = [
   './',
-  './Index.html',
+  './index.html',
   './Style.css',
   './script.js',
   './config.js',
@@ -66,7 +66,7 @@ self.addEventListener('fetch', function (e) {
       return res;
     }).catch(function () {
       return caches.match(req).then(function (hit) {
-        return hit || caches.match('./Index.html');
+        return hit || caches.match('./index.html');
       });
     })
   );

@@ -161,7 +161,7 @@
       '<meta property="og:description" content="' + cfg('date.day') + ' ' + cfg('date.month') + ' ' +
         cfg('date.year') + ' · ' + cfg('place.village') + ', ' + cfg('place.heritage') + '. Leave them a sealed blessing.">',
     ];
-    console.log('%cMETA — copy these four lines into the <head> of Index.html:',
+    console.log('%cMETA — copy these four lines into the <head> of index.html:',
       'color:#C9A227;font-weight:bold', '\n' + m.join('\n'));
   }
 
