@@ -1,16 +1,15 @@
 # HOME COMING — routing
 # Netlify and Cloudflare Pages read this automatically.
-
-# The bare address should land on the wedding page.
-/              /Index.html   301
-/index.html    /             301
+#
+# The wedding page is index.html, so the bare address serves it directly and
+# needs no rule here.
 
 # A friend who taps a link with a typo, or an old link from before you renamed
 # something, should land on the page rather than on a raw server error.
-/home          /Index.html   301
-/blessing      /Index.html#blessing  301
+/home          /             301
+/blessing      /#blessing    301
 
 # Nothing else exists. Rather than serve a directory listing, send them home.
 # This is deliberately a 302 and not a 404, because a stranger guessing paths
 # has no business getting a scary-looking error page.
-/*            /Index.html   302
+/*             /             302

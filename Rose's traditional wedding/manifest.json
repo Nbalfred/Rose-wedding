@@ -2,7 +2,7 @@
   "name": "Homecoming — Rose NDAANEE & Daniel MTON",
   "short_name": "Homecoming",
   "description": "The traditional wedding of Rose Ndaanee NDAANEE and Daniel MTON — Luekue, Ogoni Land, Rivers State, Nigeria. 22 June 2026. Leave them a sealed blessing.",
-  "start_url": "./Index.html",
+  "start_url": "./index.html",
   "scope": "./",
   "id": "homecoming-rose-daniel",
   "display": "standalone",
@@ -20,12 +20,12 @@
     {
       "name": "Leave a blessing",
       "short_name": "Blessing",
-      "url": "./Index.html#blessing",
+      "url": "./index.html#blessing",
       "icons": [{ "src": "images/icon-192.png", "sizes": "192x192" }]
     }
   ],
   "share_target": {
-    "action": "./Index.html#blessing",
+    "action": "./index.html#blessing",
     "method": "GET"
   }
 }

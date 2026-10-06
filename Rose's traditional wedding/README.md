@@ -95,7 +95,7 @@ Do these in order. It takes ten minutes and it is the difference between
 - [ ] Confirm it appears in `admin.html` **before** you tell anyone to share it.
 - [ ] Sign in to `admin.html` and check the message, the name, and that the
       phone and email are collapsed until you click.
-- [ ] Open `Index.html` and confirm the top bar is **green**, saying Private.
+- [ ] Open `index.html` and confirm the top bar is **green**, saying Private.
 - [ ] Send the link to yourself on **WhatsApp**. Check the preview picture and
       the text. This is how most people will see it, so do not skip it.
 - [ ] Open it on a **real phone**, on mobile data rather than WiFi.
@@ -121,7 +121,7 @@ mistyped addresses somewhere sensible instead of a raw server error.
 Any static host works the same way - GitHub Pages, Vercel, Cloudflare Pages.
 As long as it is HTTPS and serves the folder as is.
 
-If you test by double-clicking `Index.html` instead, the service worker will
+If you test by double-clicking `index.html` instead, the service worker will
 not register and the form will save to the local browser. That is fine for a
 look around, but put it on a host for the real thing.
 
@@ -176,7 +176,7 @@ house, not the key to the safe. On its own it can read nothing.
 | Add another country | `config.js`, `countries` |
 | Trim a family name you would rather not publish | Delete that line from `families.bride` or `families.groom` |
 | Change the colours and type everywhere | `Style.css`, the `:root` block at the very top |
-| Remove the share buttons | Delete the `.foot__share` block from `Index.html` |
+| Remove the share buttons | Delete the `.foot__share` block from `index.html` |
 | Turn the page off | Unpublish the site in Netlify |
 
 ### A note on the page title
@@ -185,7 +185,7 @@ The `<title>` and the share description are read from the file before any
 JavaScript runs, so no script can change them for a crawler or for WhatsApp.
 They are currently correct. If you ever change a name or the date, open the
 browser console on the live page: it prints the four correct lines to copy into
-the `<head>` of `Index.html`.
+the `<head>` of `index.html`.
 
 ---
 
@@ -194,7 +194,7 @@ the `<head>` of `Index.html`.
 | File | What it does |
 |---|---|
 | `config.js` | **Every name, date, place and photograph. This is the one you edit.** |
-| `Index.html` | The page guests see |
+| `index.html` | The page guests see |
 | `Style.css` | All the colours, type and layout |
 | `script.js` | The envelope, the petals, the counter, the form |
 | `setup.html` / `setup.js` | Tests your project and walks you through setup |
